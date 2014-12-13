@@ -31,3 +31,12 @@ class Finder:
 
         # based on passed parameter, return "limit" amount of results
         return results[:limit]
+
+
+    def chi2_distance(self, histogramA, histogramB, epsilon = 1e-10):
+        # takes both histograms we are comparing
+        # epsilon prevents division by zero if the images are identical
+        distance = 0.5 * numpy.sum([((a - b) ** 2) / (a + b + epsilon)
+                for (a, b) in zip(histogramA, histogramB)])
+                
+        return distance
