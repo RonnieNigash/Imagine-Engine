@@ -7,7 +7,7 @@ import glob
 argp = argparse.ArgumentParser()
 argp.add_argument("-d", "--dataset", required = True,
     help = "Path to the directory that contains the image to be indexed")
-argp.add_argument("-i", "--i", required = True,
+argp.add_argument("-i", "--index", required = True,
     help = "Path to where the computed index will be stored")
 args = vars(argp.parse_args())
 
@@ -15,10 +15,10 @@ args = vars(argp.parse_args())
 colorDef = ColorDefine((8, 12, 3))
 
 # starts output index file for writing to
-outputFile = open(args["index", "w"])
+outputFile = open(args["index"], "w")
 
 
-for imagePath in glob.glob(args["dataset" + "/*.png"]):
+for imagePath in glob.glob(args["dataset"] + "/*.jpg"):
     # take the file name and load the image using cv2
     imageFileName = imagePath[imagePath.rfind("/") + 1:]
     image = cv2.imread(imagePath)
