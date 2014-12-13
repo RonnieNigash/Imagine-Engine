@@ -23,3 +23,20 @@ class ColorDefine:
                     (centerWidth, width, 0, centerHeight,
                     (centerWidth, width, centerHeight, height),
                     (0, centerWidth, centerHeight, height)]
+
+        # circular region (more of an ellipse) for focus of image
+        (xAxis, yAxis) = (int(width * 0.75) / 2 , int(height * 0.75) / 2)
+        ellipseMask = numpy.zeros(image.shape[:2], dtype = "uint8")
+        cv2.ellipse(ellipseMask, (centerWidth, centerHeight), (xAxis, yAxis),
+                    0, 0, 360, 255, -1)
+
+        for (startX, endX, startY, endY) in regions:
+            # creating mask for four corner regions of image
+            cornerMask = numpy.zeros(image.shape[:2], dtype = "uint8")
+            cv2.rectangle(cornerMask, (startX, startY), (endX, endY), 255, -1)
+            cornerMask = cv2.subtract(cornerMask, ellipseMask)
+
+            # take image data from more focused image (region)
+            tempHist = self.histogram(image, cornerMask)
+            features.extend(tempHist)
+            
