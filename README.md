@@ -27,4 +27,4 @@ Make sure to install numpy
 
 and OpenCv
 
-```brew install opencv```
+```$ brew install opencv```
