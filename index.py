@@ -13,3 +13,20 @@ args = vars(argp.parse_args())
 
 # 8 Hue bars, 12 Saturation bars, 3 Value bars
 colorDef = ColorDefine((8, 12, 3))
+
+# starts output index file for writing to
+outputFile = open(args["index", "w"])
+
+
+for imagePath in glob.glob(args["dataset" + "/*.png"]):
+    # take the file name and load the image using cv2
+    imageFileName = imagePath[imagePath.rfind("/") + 1:]
+    image = cv2.imread(imagePath)
+
+    features = colorDef.define(image)
+
+    # write how we have defined the file
+    features = [str(f) for f in features]
+    outputFile.write("%s,%s\n" % (imageFileName, ",".join(features)))
+
+outputFile.close()
