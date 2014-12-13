@@ -17,7 +17,7 @@ class ColorDefine:
 
         # localizing color distribution with five regions
         regions = [(0, centerWidth, 0, centerHeight),
-                    (centerWidth, width, 0, centerHeight,
+                    (centerWidth, width, 0, centerHeight),
                     (centerWidth, width, centerHeight, height),
                     (0, centerWidth, centerHeight, height)]
 
@@ -52,6 +52,8 @@ class ColorDefine:
                 [0, 180, 0, 256, 0, 256])
         hist = cv2.normalize(hist)
 
+        return hist
 
-    def __ init__(self, colorHistogramBars):
+
+    def __init__(self, colorHistogramBars):
         self.colorHistogramBars = colorHistogramBars

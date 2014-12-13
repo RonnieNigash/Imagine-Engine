@@ -9,7 +9,7 @@ class Finder:
         #           similarity to input image for values
         results = {}
 
-        with open(self.indexPath) as file:
+        with open(self.fileName) as file:
 
             reader = csv.reader(file)
 

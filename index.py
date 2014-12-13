@@ -1,4 +1,4 @@
-from imagine-engine.colordefine import ColorDefine
+from colordefine import ColorDefine
 import cv2
 import argparse
 import glob
