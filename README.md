@@ -8,7 +8,7 @@ This is a reverse image search engine written in python. Using a dataset of .png
 
 Usage
 =============
-```$ python index.py --dataset <directory path to dataset of images> --index index.csv```
+```$ python index.py --dataset <directory path to dataset of images> --i index.csv```
 
 ^^ creates an index.csv files that will be used to index the entire dataset of images
 
