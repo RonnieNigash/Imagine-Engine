@@ -1,5 +1,7 @@
-from imagine-engine.colorDefine import colorDefine
-from imagine-engine.finder import finder
+#from imagine-engine.colordefine import colordefine
+#from imagine-engine.finder import finder
+from colordefine import ColorDefine
+from finder import Finder
 import argparse
 import cv2
 
@@ -13,4 +15,19 @@ argp.add_argument("-r", "--result-path", required = True,
 args = vars(argp.parse_args())
 
 # initializing with same number of color histogram bars
-cd = ColorDefine((8, 12, 3))
+colorDef = ColorDefine((8, 12, 3))
+
+
+query = cv2.imread(args["query"])
+features = colorDef.define(query)
+
+finder = Finder(args["index"])
+results = finder.find(features)
+
+cv2.imshow("Query", query)
+
+for (distance, fileName) in results:
+    # loads the results images and dislay them
+    result = cv2.imread(args["result_path"] + "/" + fileName)
+    cv2.imshow("Result", result)
+    cv2.waitKey()

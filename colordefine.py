@@ -2,7 +2,7 @@ import cv2
 import numpy
 
 class ColorDefine:
-    def describe(self, image):
+    def define(self, image):
         # changes image to Hue/Saturation/Value color space
         # from the RGB (backwards = BGR)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
