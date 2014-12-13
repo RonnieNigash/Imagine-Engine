@@ -38,5 +38,8 @@ class Finder:
         # epsilon prevents division by zero if the images are identical
         distance = 0.5 * numpy.sum([((a - b) ** 2) / (a + b + epsilon)
                 for (a, b) in zip(histogramA, histogramB)])
-                
+
         return distance
+
+    def __init__(self, fileName):
+        self.fileName = fileName
