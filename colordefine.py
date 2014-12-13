@@ -1,5 +1,5 @@
-import cv2
 import numpy
+import cv2
 
 class ColorDefine:
     def define(self, image):
