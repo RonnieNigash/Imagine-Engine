@@ -2,9 +2,6 @@ import cv2
 import numpy
 
 class ColorDefine:
-    def __ init__(self, colorHistogramBars):
-        self.colorHistogramBars = colorHistogramBars
-
     def describe(self, image):
         # changes image to Hue/Saturation/Value color space
         # from the RGB (backwards = BGR)
@@ -39,4 +36,22 @@ class ColorDefine:
             # take image data from more focused image (region)
             tempHist = self.histogram(image, cornerMask)
             features.extend(tempHist)
-            
+
+        # now take data from center elliptical region
+
+        tempHist = self.histogram(image, ellipseMask)
+        features.extend(tempHist)
+
+        return features;
+
+    def histogram(self, image, mask):
+        # take the Hue/Saturation/Value data from a masked region and
+        # normalize (use percentages values) histogram to compare
+        # images of different proportion and size but same data (content)
+        hist = cv2.calcHist([image], [0, 1, 2], mask, self.colorHistogramBars,
+                [0, 180, 0, 256, 0, 256])
+        hist = cv2.normalize(hist)
+
+
+    def __ init__(self, colorHistogramBars):
+        self.colorHistogramBars = colorHistogramBars
