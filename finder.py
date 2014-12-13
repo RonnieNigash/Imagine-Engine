@@ -24,3 +24,10 @@ class Finder:
                 results[row[0]] = distance
 
             file.close()
+
+        # smaller distances are images with more similar values
+        # smaller distances are put at the front of dictionary
+        results = sorted([(value, key) for (key, value) in results.items()])
+
+        # based on passed parameter, return "limit" amount of results
+        return results[:limit]
