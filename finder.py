@@ -16,7 +16,7 @@ class Finder:
             # rows contain fileName and feature values and
             for row in reader:
 
-                features = [float(x) for x in row[1:]]
+                features = [float(x) for x in row[2:]]
                 distance = self.chi2_distance(features, similarFeatures)
                 # compares the distance between features in index
                 # and our input features
