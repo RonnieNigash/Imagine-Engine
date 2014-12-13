@@ -14,3 +14,12 @@ class ColorDefine:
         #    (volume of Hue/Saturation/Value color space) floats
         #    each float describes a pixel's position (HSV value) in color space
         features = []
+
+        (height, width) = image.shape[:2]
+        (centerWidth, centerHeight) = (int(width * 0.5), int(height * 0.5))
+
+        # localizing color distribution with five regions
+        regions = [(0, centerWidth, 0, centerHeight),
+                    (centerWidth, width, 0, centerHeight,
+                    (centerWidth, width, centerHeight, height),
+                    (0, centerWidth, centerHeight, height)]
