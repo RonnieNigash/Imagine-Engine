@@ -23,7 +23,7 @@ Issues
 
 Make sure to install numpy
 
-'''$ pip install numpy```
+```$ pip install numpy```
 
 and OpenCv
 
