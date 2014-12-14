@@ -1,5 +1,3 @@
-#from imagine-engine.colordefine import colordefine
-#from imagine-engine.finder import finder
 from colordefine import ColorDefine
 from finder import Finder
 import argparse
