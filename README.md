@@ -4,7 +4,7 @@ Imagine-Engine
 Image Search Engine
 ===================
 
-This is a reverse image search engine written in python. Using a dataset of .png images it creates histograms of colors to compare the query image against. Too often we have to deal with sorting through thousands of family photos come the holidays. This python script should cut down that time with very little to no time investment. Don't bother tagging all of your images when you can visually search your database! Simply choose an image that looks close to what you want and send it through the script.
+This is a reverse image search engine written in python. Using a dataset of .png images it creates histograms of colors to compare the query image against. Too often we have to deal with sorting through thousands of family photos come the holidays. This python script should cut down that time investment. Don't bother tagging all of your images when you can visually search your database! Simply choose an image that looks close to what you want and send it through the script.
 
 Usage
 =====
