@@ -18,7 +18,7 @@ colorDef = ColorDefine((8, 12, 3))
 outputFile = open(args["index"], "w")
 
 
-for imagePath in glob.glob(args["dataset"] + "/*.png"):
+for imagePath in glob.glob(args["dataset"] + "/*.jpg"):
     # take the file name and load the image using cv2
     imageFileName = imagePath[imagePath.rfind("/") + 1:]
     image = cv2.imread(imagePath)
