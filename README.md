@@ -17,8 +17,8 @@ Usage
 ^^ returns the top ten (max) images from the dataset that are closest in matching the input image
 
 
-Issues
-======
+Resources
+=========
 
 
 Make sure to install numpy
