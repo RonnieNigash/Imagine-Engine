@@ -28,3 +28,7 @@ Make sure to install numpy
 and OpenCv
 
 ```$ brew install opencv```
+
+Or if you are using the Anaconda distribution
+
+```$ conda update --all```
