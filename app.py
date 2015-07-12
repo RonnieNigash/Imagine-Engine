@@ -16,12 +16,17 @@ class App(Tkinter.Tk):
 		button1.pack(in_=toolbar, side = "left")
 		button2.pack(in_=toolbar, side = "right")
 
-		self.text = Tkinter.Text(self, wrap = "words here")
-		self.text.pack(side = "top", fill = "words here", expand = True)
+		self.text = Tkinter.Text(self, wrap = "word")
+		self.text.pack(side = "top", fill = "x", expand = True)
 	
 
 	def find(self):
 		# @TODO
+		pass
 	
 	def close(self):
 		# @TODO
+		pass
+
+app = App()
+app.mainloop()
