@@ -15,6 +15,9 @@ class App(Tkinter.Tk):
 		
 		button1.pack(in_=toolbar, side = "left")
 		button2.pack(in_=toolbar, side = "right")
+
+		self.text = Tkinter.Text(self, wrap = "words here")
+		self.text.pack(side = "top", fill = "words here", expand = True)
 	
 
 	def find(self):
