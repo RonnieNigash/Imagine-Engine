@@ -11,10 +11,8 @@ class App(Tkinter.Tk):
 		toolbar.pack(side="top", fill="x")
 
 		button1 = Tkinter.Button(self, text = "Find matches", command = self.find)
-		button2 = Tkinter.Button(self, text = "Close", command = self.close)
 		
-		button1.pack(in_=toolbar, side = "left")
-		button2.pack(in_=toolbar, side = "right")
+		button1.pack(in_=toolbar, side = "top")
 
 		self.text = Tkinter.Text(self, wrap = "word")
 		self.text.pack(side = "top", fill = "x", expand = True)
