@@ -25,8 +25,9 @@ class App:
 		self.text.insert(1.0, filename)
 
 	def makeimage(self):
-		filename = Entry(self.text)
-		Image = PhotoImage(file = filename)
+		pass
+		#filename = Entry(self.text)
+		#Image = PhotoImage(file = filename)
 
 	def makelabel(self):
 		self.text = Text(self.mainWindow, width = 60, height = 1, background = 'white')
