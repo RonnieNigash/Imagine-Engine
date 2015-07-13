@@ -1,17 +1,4 @@
-from Tkinter import *
 import Tkinter, tkFileDialog
-#from tkFileDialog import askopenfilename
-#import sys
-root = Tkinter.Tk()
-
-def openfile():
-	file = tkFileDialog.askopenfile(parent = root, mode = 'rb', title = 'Choose a file')
-	filename = file.name
-	print filename
-Button(text = 'Input file', command = openfile).pack(fill = 'x')
-#button1 = Tkinter.Button(text = 'Input file', command = openfile).pack(fill = 'x')
-mainloop()
-"""
 class App(Tkinter.Tk):
 	def __init__(self):
 		Tkinter.Tk.__init__(self)
@@ -28,9 +15,8 @@ class App(Tkinter.Tk):
 		self.text.pack(side = "top", fill = "x", expand = True)
 
 	def openfile(self):
-		print askopenfilename()
-
-
+		file = tkFileDialog.askopenfile(title = 'Choose an input image')
+		print file.name
 
 	def find(self):
 		# @TODO
@@ -42,4 +28,3 @@ class App(Tkinter.Tk):
 
 app = App()
 app.mainloop()
-"""
