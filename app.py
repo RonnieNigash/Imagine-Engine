@@ -1,22 +1,24 @@
-import Tkinter, tkFileDialog
-class App(Tkinter.Tk):
-	def __init__(self):
-		Tkinter.Tk.__init__(self)
-		toolbar = Tkinter.Frame(self)
-		toolbar.pack(side = "top", fill = "x")
+#!/usr/bin/python
+from Tkinter import *
+from tkFileDialog import *
+class App:
+	def __init__(self, parent = Tk()):
+		self.mainWindow = parent
+		self.mainWindow.title("Image Engine")
+		self.makemenu()
 
-		button1 = Tkinter.Button(self, text = "Find matches", command = self.find)
-		button2 = Tkinter.Button(self, text = "Input image", command = self.openfile)
-
-		button1.pack(in_ = toolbar, side = "top")
-		button2.pack(in_ = toolbar, side = "right")
-
-		self.text = Tkinter.Text(self, wrap = "word")
-		self.text.pack(side = "top", fill = "x", expand = True)
+	def makemenu(self):
+		self.menubar = Menu(self.mainWindow)
+		self.filemenu = Menu(self.menubar, tearoff = 0)
+		self.filemenu.add_command(label = "Open", command = self.openfile)
+		self.filemenu.add_separator()
+		self.filemenu.add_command(label = "Exit", command = self.mainWindow.destroy)
+		self.menubar.add_cascade(label = "File", menu = self.filemenu)
+		self.mainWindow.config(menu = self.menubar)
 
 	def openfile(self):
-		file = tkFileDialog.askopenfile(title = 'Choose an input image')
-		print file.name
+		filename = askopenfilename(filetypes = [("jpgs", "*.jpg"), ("pngs","*.png"), ("gifs", "*.gifs"), ("allfiles", "*")] )
+		print filename
 
 	def find(self):
 		# @TODO
@@ -27,4 +29,4 @@ class App(Tkinter.Tk):
 		pass
 
 app = App()
-app.mainloop()
+app.mainWindow.mainloop()
