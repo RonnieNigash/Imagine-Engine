@@ -1,12 +1,19 @@
 #from Tkinter import *
-import Tkinter
-from tkFileDialog import askopenfilename
-import sys
+import Tkinter, tkFileDialog
+#from tkFileDialog import askopenfilename
+#import sys
+root = Tkinter.Tk()
+file = tkFileDialog.askopenfile(parent = root, mode = 'rb', title = 'Choose a file')
+filename = file.name
+print filename
 
+if file:
+	data = file.read()
+	file.close()
+	print "File is %d bytes." % len(data)
+
+"""
 class App(Tkinter.Tk):
-
-
-
 	def __init__(self):
 		Tkinter.Tk.__init__(self)
 		toolbar = Tkinter.Frame(self)
@@ -36,3 +43,4 @@ class App(Tkinter.Tk):
 
 app = App()
 app.mainloop()
+"""
