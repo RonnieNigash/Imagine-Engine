@@ -1,17 +1,16 @@
-#from Tkinter import *
+from Tkinter import *
 import Tkinter, tkFileDialog
 #from tkFileDialog import askopenfilename
 #import sys
 root = Tkinter.Tk()
-file = tkFileDialog.askopenfile(parent = root, mode = 'rb', title = 'Choose a file')
-filename = file.name
-print filename
 
-if file:
-	data = file.read()
-	file.close()
-	print "File is %d bytes." % len(data)
-
+def openfile():
+	file = tkFileDialog.askopenfile(parent = root, mode = 'rb', title = 'Choose a file')
+	filename = file.name
+	print filename
+Button(text = 'Input file', command = openfile).pack(fill = 'x')
+#button1 = Tkinter.Button(text = 'Input file', command = openfile).pack(fill = 'x')
+mainloop()
 """
 class App(Tkinter.Tk):
 	def __init__(self):
