@@ -6,8 +6,8 @@ class App:
 		self.mainWindow = parent
 		self.mainWindow.title("Image Engine")
 		self.makemenu()
-		self.makeimage()
 		self.makelabel()
+		self.makeimage()
 
 	def makemenu(self):
 		self.menubar = Menu(self.mainWindow)
@@ -21,14 +21,16 @@ class App:
 	def openfile(self):
 		filename = askopenfilename(filetypes = [("jpgs", "*.jpg"), ("pngs","*.png"), ("gifs", "*.gifs"), ("allfiles", "*")] )
 		print filename
+		self.text.delete(1.0, END)
+		self.text.insert(1.0, filename)
 
 	def makeimage(self):
-		# @TODO
-		pass
+		filename = Entry(self.text)
+		Image = PhotoImage(file = filename)
 
 	def makelabel(self):
-		# @TODO
-		pass
+		self.text = Text(self.mainWindow, width = 60, height = 1, background = 'white')
+		self.text.pack(expand = TRUE, fill = BOTH)
 
 	def find(self):
 		# @TODO
