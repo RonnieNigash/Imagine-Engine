@@ -1,4 +1,5 @@
 import Tkinter as tk
+from PIL import Image, ImageTk
 
 class app(tk.Frame):
 	def __init__(self, parent, *args, **kwargs):
@@ -22,7 +23,11 @@ def open_image(self):
 	print filename
 	self.file_path.delete(1.0, END)
 	self.file_path.insert(0, filename)
-	
+
+	img = tk.PhotoImage(Image.open(filename))
+	self.image.delete(1.0, END)
+	self.image.insert(0, img)
+
 if __name__ == "__main__":
 	root = tk.Tk()
 	app(root).pack(side = "top", fill = "both", expand = True)
