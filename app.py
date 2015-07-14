@@ -14,21 +14,21 @@ class app(tk.Frame):
 		self.file_path.pack()
 		self.file_path.insert(0, "")
 
-		self.image = tk.Label(parent, text = "Image")
+		self.image = tk.Label(parent, width = 60, height = 40)
 		self.image.pack()
 
 		self.get_image = tk.Button(parent, text = "Input Image", command = self.open_image)
 		self.get_image.pack()
 
 	def open_image(self):
-		filename = askopenfilename(filetypes = [("jpgs", "*.jpg"), ("pngs","*.png"), ("gifs", "*.gifs"), ("allfiles", "*")] )
+		filename = askopenfilename(filetypes = [("pngs","*.png")])
 		print filename
-		self.file_path.delete(1.0, END)
+		self.file_path.delete(0, tk.END)
 		self.file_path.insert(0, filename)
-
-		img = tk.PhotoImage(Image.open(filename))
-		self.image.delete(1.0, END)
-		self.image.insert(0, img)
+		
+		if filename:
+			img = ImageTk.PhotoImage(file = filename)
+			self.image.configure(image = img)
 
 if __name__ == "__main__":
 	root = tk.Tk()
