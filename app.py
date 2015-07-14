@@ -25,10 +25,12 @@ class app(tk.Frame):
 		print filename
 		self.file_path.delete(0, tk.END)
 		self.file_path.insert(0, filename)
-		
+
 		if filename:
 			img = ImageTk.PhotoImage(file = filename)
-			self.image.configure(image = img)
+			img = img.resize((30, 30), Image.ANTIALIAS)
+			self.image.configure(image = img) #Throws Seg Fault:11 ... Time to use lldb
+			# @TODO FIX Seg Fault
 
 if __name__ == "__main__":
 	root = tk.Tk()
