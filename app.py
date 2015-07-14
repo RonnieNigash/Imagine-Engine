@@ -12,10 +12,12 @@ class App:
 	def makemenu(self):
 		self.menubar = Menu(self.mainWindow)
 		self.filemenu = Menu(self.menubar, tearoff = 0)
+		self.menubar.add_cascade(label = "File", menu = self.filemenu)
+		
 		self.filemenu.add_command(label = "Open", command = self.openfile)
 		self.filemenu.add_separator()
 		self.filemenu.add_command(label = "Exit", command = self.mainWindow.destroy)
-		self.menubar.add_cascade(label = "File", menu = self.filemenu)
+
 		self.mainWindow.config(menu = self.menubar)
 
 	def openfile(self):
