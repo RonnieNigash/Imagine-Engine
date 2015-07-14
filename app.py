@@ -1,5 +1,7 @@
 import Tkinter as tk
+from tkFileDialog import askopenfilename
 from PIL import Image, ImageTk
+
 
 class app(tk.Frame):
 	def __init__(self, parent, *args, **kwargs):
@@ -15,18 +17,18 @@ class app(tk.Frame):
 		self.image = tk.Label(parent, text = "Image")
 		self.image.pack()
 
-		self.get_image = tk.Button(parent, text = "Input Image", command = open_image)
+		self.get_image = tk.Button(parent, text = "Input Image", command = self.open_image)
 		self.get_image.pack()
 
-def open_image(self):
-	filename = tk.askopenfilename(filetypes = [("jpgs", "*.jpg"), ("pngs","*.png"), ("gifs", "*.gifs"), ("allfiles", "*")] )
-	print filename
-	self.file_path.delete(1.0, END)
-	self.file_path.insert(0, filename)
+	def open_image(self):
+		filename = askopenfilename(filetypes = [("jpgs", "*.jpg"), ("pngs","*.png"), ("gifs", "*.gifs"), ("allfiles", "*")] )
+		print filename
+		self.file_path.delete(1.0, END)
+		self.file_path.insert(0, filename)
 
-	img = tk.PhotoImage(Image.open(filename))
-	self.image.delete(1.0, END)
-	self.image.insert(0, img)
+		img = tk.PhotoImage(Image.open(filename))
+		self.image.delete(1.0, END)
+		self.image.insert(0, img)
 
 if __name__ == "__main__":
 	root = tk.Tk()
