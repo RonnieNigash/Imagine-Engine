@@ -1,3 +1,9 @@
 from django.db import models
 
 # Create your models here.
+
+class InputImage(models.Model):
+	input_image_file_path = CharField(max_length = 50)
+
+class FoundImages(models.Model):
+	output_image_file_path = CharField(max_length = 50)
