@@ -16,11 +16,14 @@
 		<p>No images uploaded.</p>
 	{% endif %}
 
-	<!-- TODO: add form -->
 		<form action = "{% url 'input' %}" method = "post" enctype = "multipart/form-data">
 			{% csrf_token %}
-			<!-- TODO: get errors -->
-
+			<p>{{ form.non_field_errors }}</p>
+			<p>{{ form.imgfile.label_tag }}</p>
+			<p>
+				{{ form.imgfile.errors }}
+				{{ form.imgfile }}
+			</p>
 			<p><input type = "submit" value = "Upload"/></p>
 		</form>
 	</body>
