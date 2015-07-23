@@ -15,13 +15,13 @@ def list(request):
 			newimg = Image(docfile = request.FILES["imgfile"])
 			newimg.save()
 
-			return HttpResponseRedirect(reverse("webUI.views.list"))
+			return HttpResponseRedirect(reverse("webUI.views.input"))
 		else:
 			form = ImageForm()
 	
 	images = Form.objects.all()
 
-	return render_to_response("webUI/list.html", 
+	return render_to_response("webUI/input.html", 
 			{'images' : images, "form" : form}, 
 			context_instance = RequestContext(request))
 
