@@ -17,6 +17,11 @@
 	{% endif %}
 
 	<!-- TODO: add form -->
+		<form action = "{% url 'input' %}" method = "post" enctype = "multipart/form-data">
+			{% csrf_token %}
+			<!-- TODO: get errors -->
 
+			<p><input type = "submit" value = "Upload"/></p>
+		</form>
 	</body>
 </html>
