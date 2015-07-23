@@ -18,6 +18,12 @@ def list(request):
 			return HttpResponseRedirect(reverse("webUI.views.list"))
 		else:
 			form = ImageForm()
+	
+	images = Form.objects.all()
+
+	return render_to_response("webUI/list.html", 
+			{'images' : images, "form" : form}, 
+			context_instance = RequestContext(request))
 
 def index(request):
 	return HttpResponse("Search index page.")
