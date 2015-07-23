@@ -12,3 +12,11 @@
 			<li><a href = "{{ image.imgfile.url }}">{{ image.imgfile.name }}</a></li>
 		{% endfor %}
 		</ul>
+	{% else %}
+		<p>No images uploaded.</p>
+	{% endif %}
+
+	<!-- TODO: add form -->
+
+	</body>
+</html>
