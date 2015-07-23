@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>Input image</title>
+	</head>
+	<body>
+
+	{% if images %}
+		<ul>
+		{% for image in images %}
+			<li><a href = "{{ image.imgfile.url }}">{{ image.imgfile.name }}</a></li>
+		{% endfor %}
+		</ul>
