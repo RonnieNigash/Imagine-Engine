@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Image(models.Model):
-	imgfile = models.FileField(upload_to='documets/%Y/%m/%d')
+	imgfile = models.FileField(upload_to="documents/%Y/%m/%d")
 
 class InputImage(models.Model):
 	input_image_file_path = models.CharField(max_length = 50)
