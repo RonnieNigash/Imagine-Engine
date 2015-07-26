@@ -18,7 +18,7 @@ def input(request):
 
 			return HttpResponseRedirect(reverse("webUI.views.input"))
 	images = InputImage()
-	return render_to_response("webUI/input.html", 
+	return render_to_response("webUI/search/templates/input.html", 
 			{"images" : InputImage, "form" : form}, 
 			context_instance = RequestContext(request))
 
