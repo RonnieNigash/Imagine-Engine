@@ -5,10 +5,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 
-from search.models import Image
+from search.models import Image, InputImage
 from search.forms import ImageForm
 
-def list(request):
+def input(request):
+	form = ImageForm()
 	if request.method == "POST":
 		form = ImageForm(request.POST, request.FILES)
 		if form.is_valid():
@@ -16,13 +17,9 @@ def list(request):
 			newimg.save()
 
 			return HttpResponseRedirect(reverse("webUI.views.input"))
-		else:
-			form = ImageForm()
-	
-	images = Form.objects.all()
-
+	images = InputImage()
 	return render_to_response("webUI/input.html", 
-			{'images' : images, "form" : form}, 
+			{"images" : InputImage, "form" : form}, 
 			context_instance = RequestContext(request))
 
 def index(request):
