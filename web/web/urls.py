@@ -14,7 +14,7 @@ urlpatterns = patterns('',
 
 		url(r'^upload/', ImageView.as_view(), name = 'image_upload'),
 
-		url(r'^uploaded/(?P<pk>\d+/$', DetailView.as_view(), name = 'image'),
+		url(r'^uploaded/(?P<pk>\d+)/$', DetailView.as_view(), name = 'image'),
 
 		url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
