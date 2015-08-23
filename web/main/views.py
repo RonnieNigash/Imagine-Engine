@@ -11,10 +11,15 @@ class ImageView(FormView):
 	form_class = ImageForm
 
 	def form_valid(self, form):
+		uploaded_image = Image(
+				image = self.get_form_kwargs().get('files')['image'])
+		uploaded_image.save()
+		self.id = uploaded_image.id
+
 		return HttpResponseRedirect(self.get_success_url())
 
 	def get_success_url(self):
-		pass
+		return reverse('uploaded_image', kwargs = {'pk' : self.id})
 
 
 class DetailView(DetailView):
