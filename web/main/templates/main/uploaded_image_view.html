@@ -2,8 +2,9 @@
 
 {% block content %}
 <form action="{% url "image_upload" %}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-	<input type="submit" value="submit" />
-</form>
+	    {% csrf_token %}
+		    {{ form.as_p }}
+			    <input type="submit" value="submit" />
+			</form>
 {% endblock %}
+
